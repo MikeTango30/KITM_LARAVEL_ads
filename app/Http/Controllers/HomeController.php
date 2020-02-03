@@ -8,18 +8,11 @@ class HomeController extends Controller
 {
     public function index(){
 
-        return view('welcome');
+        return view('ads.pages.index');
     }
 
     public function showProfile(){
 
-        $employees = [
-            'Jonas',
-            'Petras',
-            'Antanas',
-            'Ieva'
-        ];
-
-        return view('profile', compact('employees'));
+        return view('ads.pages.profile');
     }
 }
