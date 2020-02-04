@@ -1,31 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <title>Profilis</title>
+    <title>DirectoryAds &mdash; Colorlib Website Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="{!! asset('fonts/icomoon/style.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/bootstrap.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/magnific-popup.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/jquery-ui.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/owl.carousel.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/owl.theme.default.min.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/bootstrap-datepicker.css') !!}">
+    <link rel="stylesheet" href="{!! asset('fonts/flaticon/font/flaticon.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/aos.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/rangeslider.css') !!}">
+    <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
+
 </head>
 <body>
 
+<div class="site-wrap">
+
+    <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+
 @include('ads/_partials/header')
-@include('ads/_partials/nav')
+@yield('promo')
 @yield('content')
 @include('ads/_partials/footer')
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+</div>
+<script src="{!! asset('js/aos.js') !!}"></script>
+<script src="{!! asset('js/bootstrap.js') !!}"></script>
+<script src="{!! asset('js/jquery-3.3.1.min.js') !!}"></script>
+<script src="{!! asset('js/jquery-migrate-3.0.1.min.js') !!}"></script>
+<script src="{!! asset('js/jquery-ui.js') !!}"></script>
+<script src="{!! asset('js/popper.min.js') !!}"></script>
+<script src="{!! asset('js/bootstrap.min.js') !!}"></script>
+<script src="{!! asset('js/owl.carousel.min.js') !!}"></script>
+<script src="{!! asset('js/jquery.stellar.min.js') !!}"></script>
+<script src="{!! asset('js/jquery.countdown.min.js') !!}"></script>
+<script src="{!! asset('mediaelement-and-player.min.js') !!}"></script>
+<script src="{!! asset('js/jquery.magnific-popup.min.js') !!}"></script>
+<script src="{!! asset('js/bootstrap-datepicker.min.js') !!}"></script>
+<script src="{!! asset('js/rangeslider.min.js') !!}"></script>
+<script src="{!! asset('js/slick.min.js') !!}"></script>
+<script src="{!! asset('js/typed.js') !!}"></script>
+<script src="{!! asset('js/main.js') !!}"></script>
+
 </body>
 </html>

@@ -11,8 +11,8 @@ class HomeController extends Controller
         return view('ads.pages.index');
     }
 
-    public function showProfile(){
+    public function showListings(){
 
-        return view('ads.pages.profile');
+        return view('ads.pages.listings');
     }
 }
