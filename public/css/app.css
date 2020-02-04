@@ -1,3 +1,6 @@
-
+.admin-menu ul {
+  display: inline; }
+  .admin-menu ul li {
+    list-style: none; }
 
 /*# sourceMappingURL=app.css.map */
