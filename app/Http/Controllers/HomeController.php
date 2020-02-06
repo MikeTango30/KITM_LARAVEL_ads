@@ -15,4 +15,19 @@ class HomeController extends Controller
 
         return view('ads.pages.listings');
     }
+
+    public function showListing(){
+
+        return view('ads.pages.listing');
+    }
+
+    public function showAbout(){
+
+        return view('ads.pages.about');
+    }
+
+    public function showContacts(){
+
+        return view('ads.pages.contacts');
+    }
 }

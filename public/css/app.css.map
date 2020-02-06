@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACE,cAAG;EACD,OAAO,EAAE,MAAM;EACf,iBAAG;IACF,UAAU,EAAE,IAAI",
-"sources": ["../../resources/sass/_global.scss"],
-"names": [],
-"file": "app.css"
-}

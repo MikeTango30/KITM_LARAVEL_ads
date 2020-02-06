@@ -15,7 +15,7 @@
                     <li class="has-children">
                         <a href="{{ url('/about') }}">Apie</a>
                         <ul class="dropdown">
-                            <li><a href="{{ url('/info') }}">Projekto informacija</a></li>
+                            <li><a href="{{ url('/about') }}">Projekto informacija</a></li>
                         </ul>
                     </li>
                     <li class="mr-5"><a href="{{ url('/contacts') }}">Kontaktai</a></li>

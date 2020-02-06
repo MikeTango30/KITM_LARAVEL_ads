@@ -1,16 +1,1 @@
 require('./bootstrap');
-require('./aos');
-require('./bootstrap-datepicker.min');
-require('./jquery.countdown.min');
-require('./jquery.magnific-popup.min');
-require('./jquery.stellar.min');
-require('./jquery-3.3.1.min');
-require('./jquery-migrate-3.0.1.min');
-require('./jquery-ui');
-require('./main');
-require('./mediaelement-and-player.min');
-require('./owl.carousel.min');
-require('./popper.min');
-require('./rangeslider.min');
-require('./slick.min');
-require('./typed');

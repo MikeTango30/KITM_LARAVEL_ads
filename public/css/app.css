@@ -1,6 +1,16 @@
 .admin-menu ul {
-  display: inline; }
-  .admin-menu ul li {
-    list-style: none; }
+  display: inline;
+}
 
-/*# sourceMappingURL=app.css.map */
+.admin-menu ul li {
+  list-style: none;
+}
+
+.about {
+  min-height: 400px;
+}
+
+.about h4 {
+  margin-top: 4rem;
+}
+
