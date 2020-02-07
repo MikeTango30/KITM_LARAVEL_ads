@@ -1,8 +1,21 @@
+a {
+  color: #fff;
+  text-decoration: none;
+  &:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+.add-button {
+  margin: 1rem 0;
+}
+
 .admin-menu {
   ul {
     display: inline;
     li {
-     list-style: none;
+      list-style: none;
     }
   }
 }
@@ -16,4 +29,17 @@
 
 .add-category {
   min-height: 400px;
+}
+
+$custom-file-text: (
+        en: "Browse",
+        lt: "Naršyti kompiuteryje"
+);
+
+.custom-file-label {
+  margin: 1rem 15px;
+}
+
+.errors {
+  margin: 1rem 0;
 }

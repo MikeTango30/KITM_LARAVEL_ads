@@ -16,4 +16,11 @@ Route::get('/listings', 'HomeController@showListings');
 Route::get('/listing', 'HomeController@showListing');
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/contacts', 'HomeController@showContacts');
-Route::get('/add_category', 'HomeController@showNewCategoryForm');
+
+Route::get('/add-category', 'CategoryController@showNewCategoryForm');
+Route::post('/store-category', 'CategoryController@storeCategory');
+
+Route::get('/add-listing', 'ListingController@showNewListingForm');
+Route::post('/store-listing', 'ListingController@storeListing');
+
+Route::get('/categories', 'CategoryController@showCategories');

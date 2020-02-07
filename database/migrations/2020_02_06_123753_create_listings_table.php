@@ -19,7 +19,7 @@ class CreateListingsTable extends Migration
             $table->string('img')->nullable();
             $table->string('listing_title');
             $table->string('location');
-            $table->tinyInteger('rating');
+            $table->tinyInteger('rating')->nullable();
             $table->longText('description');
             $table->decimal('price',5,2);
             $table->string('email');

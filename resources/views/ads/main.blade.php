@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
     <title>Skelbimai</title>
     <meta charset="utf-8">

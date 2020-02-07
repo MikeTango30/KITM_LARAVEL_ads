@@ -1,3 +1,17 @@
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.add-button {
+  margin: 1rem 0;
+}
+
 .admin-menu ul {
   display: inline;
 }
@@ -16,5 +30,13 @@
 
 .add-category {
   min-height: 400px;
+}
+
+.custom-file-label {
+  margin: 1rem 15px;
+}
+
+.errors {
+  margin: 1rem 0;
 }
 
