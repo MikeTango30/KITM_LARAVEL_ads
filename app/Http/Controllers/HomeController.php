@@ -14,9 +14,8 @@ class HomeController extends Controller
     }
 
     public function showListings(){
-        $listings = Listing::select('listing_title', 'location', 'description', 'rating')
+        $listings = Listing::select('listing_title', 'location', 'description', 'rating', 'category_name')
             ->join('categories', 'listings.category_id', '=', 'categories.id')->get();
-        dd($listings);
         return view('ads.pages.listings', compact('listings'));
     }
 
