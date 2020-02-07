@@ -15,19 +15,17 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Kategorijos</th>
                             <th scope="col">Šalinimas</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {{--@foreach()--}}
+                        @foreach($categories as $category)
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td><a class="btn btn-primary" href="{{ url('/delete_category') }}">Šalinti</a></td>
+                            <td>{{ $category->category_name }}</td>
+                            <td><a class="btn btn-primary" href="{{ url('/categories/delete/'.$category->id) }}">Šalinti</a></td>
                         </tr>
-                        {{--@endforeach--}}
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

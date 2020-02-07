@@ -24,3 +24,4 @@ Route::get('/add-listing', 'ListingController@showNewListingForm');
 Route::post('/store-listing', 'ListingController@storeListing');
 
 Route::get('/categories', 'CategoryController@showCategories');
+Route::get('/categories/delete/{category}', 'CategoryController@destroy');

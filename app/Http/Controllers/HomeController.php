@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Listing;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,8 +14,10 @@ class HomeController extends Controller
     }
 
     public function showListings(){
-
-        return view('ads.pages.listings');
+        $listings = Listing::select('listing_title', 'location', 'description', 'rating')
+            ->join('categories', 'listings.category_id', '=', 'categories.id')->get();
+        dd($listings);
+        return view('ads.pages.listings', compact('listings'));
     }
 
     public function showListing(){
