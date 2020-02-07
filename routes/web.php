@@ -16,3 +16,4 @@ Route::get('/listings', 'HomeController@showListings');
 Route::get('/listing', 'HomeController@showListing');
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/contacts', 'HomeController@showContacts');
+Route::get('/add_category', 'HomeController@showNewCategoryForm');

@@ -1,15 +1,4 @@
 @extends('ads/main')
-{{--@section('admin')--}}
-{{--<div class="row admin-menu justify-content-center">--}}
-{{--<li class="col">--}}
-{{--<ul>--}}
-{{--<li class="active"><a href="{{ url('/newAd') }}">Įkelti naują skelbimą</a></li>--}}
-{{--<li><a href="{{ url('/myAds') }}">Mano skelbimai</a></li>--}}
-{{--<li class="mr-5"><a href="{{ url('/') }}">Atsijungti</a></li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--@stop--}}
 @section('promo')
     @include('ads/_partials/promo')
 @stop

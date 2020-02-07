@@ -26,7 +26,6 @@
     </div>
 
 @include('ads/_partials/header')
-@yield('admin')
 @yield('promo')
 @yield('content')
 @include('ads/_partials/footer')

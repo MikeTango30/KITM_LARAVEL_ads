@@ -30,4 +30,9 @@ class HomeController extends Controller
 
         return view('ads.pages.contacts');
     }
+
+    public function showNewCategoryForm() {
+
+        return view('ads.pages.add_category');
+    }
 }
