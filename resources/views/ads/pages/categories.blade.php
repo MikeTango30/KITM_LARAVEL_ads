@@ -17,6 +17,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Kategorijos</th>
+                            <th scope="col">Šalinimas</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -24,6 +25,7 @@
                         <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
+                            <td><a class="btn btn-primary" href="{{ url('/delete_category') }}">Šalinti</a></td>
                         </tr>
                         {{--@endforeach--}}
                         </tbody>
