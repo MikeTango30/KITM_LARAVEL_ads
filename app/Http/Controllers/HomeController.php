@@ -8,28 +8,36 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $listings = Listing::select('*')
+            ->join('categories', 'listings.category_id', '=', 'categories.id')
+            ->orderBy('listings.created_at', 'desc')
+            ->limit(5)
+            ->get();
 
-        return view('ads.pages.index');
+        $categories = Category::all();
+
+        return view('ads.pages.index', compact('listings', 'categories'));
     }
 
-    public function showListings(){
-        $listings = Listing::select('listing_title', 'location', 'description', 'rating', 'category_name')
-            ->join('categories', 'listings.category_id', '=', 'categories.id')->get();
+    public function showListings()
+    {
+        $listings = Listing::select('*')
+            ->join('categories', 'listings.category_id', '=', 'categories.id')
+            ->simplePaginate(15);
+
         return view('ads.pages.listings', compact('listings'));
     }
 
-    public function showListing(){
-
-        return view('ads.pages.listing');
-    }
-
-    public function showAbout(){
+    public function showAbout()
+    {
 
         return view('ads.pages.about');
     }
 
-    public function showContacts(){
+    public function showContacts()
+    {
 
         return view('ads.pages.contacts');
     }

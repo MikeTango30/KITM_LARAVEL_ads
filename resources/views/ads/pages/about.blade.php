@@ -1,7 +1,10 @@
 @extends('ads/main')
 @section('promo')
-    @include('ads/_partials/listing_promo')
+    @extends('ads/_partials/inner_promo')
+    @section('inner_promo_title')
+        <h1>Apie projektą</h1>
     @stop
+@stop
 @section('content')
     <div class="container">
         <div class="row justify-content-center about h-100">

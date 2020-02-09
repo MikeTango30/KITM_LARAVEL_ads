@@ -13,15 +13,18 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/listings', 'HomeController@showListings');
-Route::get('/listing', 'HomeController@showListing');
+Route::get('/listing/{listing}', 'ListingController@showListing');
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/contacts', 'HomeController@showContacts');
 
-Route::get('/add-category', 'CategoryController@showNewCategoryForm');
-Route::post('/store-category', 'CategoryController@storeCategory');
-
+Route::get('/listing-mgmt', 'ListingController@showListingsTable');
 Route::get('/add-listing', 'ListingController@showNewListingForm');
 Route::post('/store-listing', 'ListingController@storeListing');
+Route::get('/listing/delete/{listing}', 'ListingController@destroy');
 
-Route::get('/categories', 'CategoryController@showCategories');
+Route::get('/category-mgmt', 'CategoryController@showCategories');
+Route::get('/add-category', 'CategoryController@showNewCategoryForm');
+Route::post('/store-category', 'CategoryController@storeCategory');
 Route::get('/categories/delete/{category}', 'CategoryController@destroy');
+
+

@@ -8,14 +8,16 @@ use Illuminate\Http\Request;
 
 class ListingController extends Controller
 {
-    public function showNewListingForm() {
+    public function showNewListingForm()
+    {
 
         $categories = Category::all();
 
         return view('ads.pages.add_listing', compact('categories'));
     }
 
-    public function storeListing(Request $request) {
+    public function storeListing(Request $request)
+    {
 
         $validatedData = $request->validate([
             'catId' => 'required',
@@ -41,9 +43,28 @@ class ListingController extends Controller
         return redirect('/listings');
     }
 
-    public function getListings(){
-        $listings = DB::table('listings')->join('categories', 'listings.category_id', '=', 'categories.id');
+    public function showListing(Listing $listing)
+    {
 
-        return $listings;
+        return view('ads.pages.listing', compact('listing'));
     }
+
+    public function showListingsTable()
+    {
+
+        $listings = Listing::select('*')
+            ->join('categories', 'listings.category_id', '=', 'categories.id')
+            ->simplePaginate(10);
+
+        return view('ads.pages.listing_mgmt', compact('listings'));
+    }
+
+    public function destroy(Listing $listing)
+    {
+
+        $listing->delete();
+
+        return redirect('/listing-mgmt');
+    }
+
 }

@@ -1,6 +1,9 @@
 @extends('ads/main')
 @section('promo')
-    @include('ads/_partials/listing_promo')
+    @extends('ads/_partials/inner_promo')
+@section('inner_promo_title')
+    <h1>Pridėkite naują kategoriją</h1>
+@stop
 @stop
 @section('content')
     <div class="site-section bg-light">

@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function showNewCategoryForm() {
+    public function showNewCategoryForm()
+    {
 
         return view('ads.pages.add_category');
     }
 
-    public function storeCategory(Request $request) {
+    public function storeCategory(Request $request)
+    {
 
         $validatedData = $request->validate([
             'title' => 'required'
@@ -24,17 +26,19 @@ class CategoryController extends Controller
         return redirect('/categories');
     }
 
-    public function showCategories() {
+    public function showCategories()
+    {
 
         $categories = Category::all();
 
-        return view('ads.pages.categories', compact('categories'));
+        return view('ads.pages.categories_mgmt', compact('categories'));
     }
 
-    public function destroy(Category $category) {
+    public function destroy(Category $category)
+    {
 
         $category->delete();
 
-        return redirect('/categories');
+        return redirect('/category-mgmt');
     }
 }

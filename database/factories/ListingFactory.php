@@ -16,7 +16,7 @@ $factory->define(Listing::class, function (Faker $faker) {
         'img' => null,
         'listing_title' => $faker->productName,
         'location' => $fakerLT->city,
-        'rating' => $faker->numberBetween(0, 5),
+        'rating' => $faker->numberBetween(1, 5),
         'description' => $fakerLT->paragraph($nbSentences = 3, $variableNbSentences = true),
         'price' => $faker->randomFloat(2, 4, 50),
         'email' => $fakerLT->email,

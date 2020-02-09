@@ -1,54 +1,27 @@
 @extends('ads/main')
 @section('promo')
-    @include('ads._partials.listings_promo')
+    @extends('ads/_partials/inner_promo')
+@section('inner_promo_title')
+    <h1>Visi skelbimai</h1>
+    <p class="mb-0">Susirask savo įgeidį</p>
+@stop
 @stop
 @section('content')
     <div class="site-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-
+                <div class="col-lg-10">
                     <div class="row">
                         @foreach($listings as $listing)
-                            <div class="col-lg-6">
-
-                                <div class="d-block d-md-flex listing vertical">
-                                    <a href="#" class="img d-block"
-                                       style="background-image: url({!! asset('images/img_1.jpg') !!})"></a>
-                                    <div class="lh-content">
-                                        <span class="category">{{ $listing->category_name }}</span>
-                                        <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                                        <h3><a class="text-black" href="#">{{ $listing->listing_title }}</a></h3>
-                                        <address>{{ $listing->location }}</address>
-                                        <p class="mb-0">
-                                            @for($i = 0; $i < $listing->rating; $i++)
-                                                <span class="icon-star text-warning"></span>
-                                            @endfor
-                                            @for($i = 0; $i < (5 - $listing->rating); $i++)
-                                                <span class="icon-star text-secondary"></span>
-                                            @endfor
-                                            <span class="review">{{ $listing->rating }}</span>
-                                        </p>
-                                    </div>
-                                </div>
-
+                            <div class="col-lg-3">
+                                @include('ads._partials.listing')
                             </div>
                         @endforeach
-
                     </div>
-
-                    <div class="col-12 mt-5 text-center">
-                        <div class="custom-pagination">
-                            <span>1</span>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span class="more-page">...</span>
-                            <a href="#">10</a>
-                        </div>
+                    <div class="row mt-5 justify-content-center">
+                        {{ $listings->links() }}
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

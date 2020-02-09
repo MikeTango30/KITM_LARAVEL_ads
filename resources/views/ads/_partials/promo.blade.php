@@ -32,12 +32,9 @@
                                     <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
                                     <select class="form-control rounded" name="" id="">
                                         <option value="">Visos kategorijos</option>
-                                        <option value="">Laukiniai žvėrys</option>
-                                        <option value="">Naminiai gyvūnai</option>
-                                        <option value="">Neegzistuojančios dievybės</option>
-                                        <option value="">Intelektinė nuosavybė</option>
-                                        <option value="">Okultizmo priemonės</option>
-                                        <option value="">Verbavimo į sektas pagalba</option>
+                                        @foreach($categories as $category)
+                                            <option value="">{{ $category->category_name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
