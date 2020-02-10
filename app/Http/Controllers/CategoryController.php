@@ -23,7 +23,7 @@ class CategoryController extends Controller
             'category_name' => request('title')
         ]);
 
-        return redirect('/categories');
+        return redirect('/category-mgmt');
     }
 
     public function showCategories()

@@ -40,7 +40,7 @@ class ListingController extends Controller
             'phone' => request('phone'),
         ]);
 
-        return redirect('/listings');
+        return redirect('/listing-mgmt');
     }
 
     public function showListing(Listing $listing)
@@ -52,7 +52,7 @@ class ListingController extends Controller
     public function showListingsTable()
     {
 
-        $listings = Listing::select('*')
+        $listings = Listing::select('*', \DB::raw("listings.id as listingId"))
             ->join('categories', 'listings.category_id', '=', 'categories.id')
             ->simplePaginate(10);
 
@@ -63,6 +63,31 @@ class ListingController extends Controller
     {
 
         $listing->delete();
+
+        return redirect('/listing-mgmt');
+    }
+
+    public function showUpdateForm(Listing $listing) {
+
+        $categories = Category::all();
+        $categoryId = $listing->getAttribute('category_id');
+        $currentCategory = Category::select('category_name')->find($categoryId);
+
+        return view('ads.pages.listing_update', compact('listing', 'categories', 'currentCategory'));
+    }
+
+    public function updateListing(Request $request, Listing $listing) {
+
+        $validatedData = $request->validate([
+            'category_id' => 'required',
+            'listing_title' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'email' => 'required',
+            'phone' => 'required'
+        ]);
+        Listing::where('id', $listing->getAttribute('id'))->update($request->except(['_token']));
 
         return redirect('/listing-mgmt');
     }

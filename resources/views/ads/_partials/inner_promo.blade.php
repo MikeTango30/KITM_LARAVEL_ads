@@ -4,7 +4,8 @@
             <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-8 text-center">
-                        @yield('inner_promo_title')
+                        {{ $title }}
+                        <p class="mb-0">{{ $slot }}</p>
                     </div>
                 </div>
             </div>

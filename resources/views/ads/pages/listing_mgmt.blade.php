@@ -1,9 +1,10 @@
 @extends('ads/main')
 @section('promo')
-    @extends('ads/_partials/inner_promo')
-    @section('inner_promo_title')
-        <h1>Skelbimų valdymas</h1>
-    @stop
+    @component('ads._partials.inner_promo')
+        @slot('title')
+            <h1>Skelbimų valdymas</h1>
+        @endslot
+    @endcomponent
 @stop
 @section('content')
     <div class="site-section bg-light">
@@ -14,10 +15,10 @@
                 </div>
             </div>
             <div class="row">
-                <table class="table table-bordered">
-                    <thead class="thead-light">
+                <table class="table table-striped table-hover table-sm table-responsive">
+                    <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Skelbimo ID</th>
+                        <th scope="col">Kategorija</th>
                         <th scope="col">Skelbimo pavadinimas</th>
                         <th scope="col">Aprasymas</th>
                         <th scope="col">Kaina</th>
@@ -29,13 +30,13 @@
                     <tbody>
                     <tr>
                         @foreach($listings as $listing)
-                            <td>{{$listing->id}}</td>
+                            <td>{{$listing->category_name}}</td>
                             <td>{{$listing->listing_title}}</td>
                             <td>{{$listing->description}}</td>
                             <td>{{$listing->price}}</td>
                             <td>{{$listing->location}}</td>
-                            <th><a href="/listing/update/{{$listing->id}}" class="btn btn-warning">Koreguoti</a></th>
-                            <th><a href="/listing/delete/{{$listing->id}}" class="btn btn-danger">Šalinti</a></th>
+                            <th><a href="/listing/update/form/{{$listing->listingId}}" class="btn btn-warning">Koreguoti</a></th>
+                            <th><a href="/listing/delete/{{$listing->listingId}}" class="btn btn-danger">Šalinti</a></th>
                     </tr>
                     @endforeach
                     </tbody>

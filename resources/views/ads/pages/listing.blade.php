@@ -1,9 +1,10 @@
 @extends('ads/main')
 @section('promo')
-    @extends('ads/_partials/inner_promo')
-@section('inner_promo_title')
-    <h1>{{ $listing->listing_title }}</h1>
-@stop
+    @component('ads._partials.inner_promo')
+        @slot('title')
+            <h1>{{ $listing->listing_title }}</h1>
+        @endslot
+    @endcomponent
 @stop
 @section('content')
     <div class="site-section">

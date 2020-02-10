@@ -1,10 +1,11 @@
 @extends('ads/main')
 @section('promo')
-    @extends('ads/_partials/inner_promo')
-@section('inner_promo_title')
-    <h1>Visi skelbimai</h1>
-    <p class="mb-0">Susirask savo įgeidį</p>
-@stop
+    @component('ads._partials.inner_promo')
+        @slot('title')
+            <h1>Visi skelbimai</h1>
+        @endslot
+        Susirask savo įgeidį
+    @endcomponent
 @stop
 @section('content')
     <div class="site-section">
