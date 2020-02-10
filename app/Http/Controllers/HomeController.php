@@ -30,6 +30,13 @@ class HomeController extends Controller
         return view('ads.pages.listings', compact('listings'));
     }
 
+    public function search(Request $request) {
+
+        dd($request);
+        $input = request::input('search');
+
+    }
+
     public function showAbout()
     {
 

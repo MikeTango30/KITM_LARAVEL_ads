@@ -29,4 +29,5 @@ Route::get('/add-category', 'CategoryController@showNewCategoryForm');
 Route::post('/store-category', 'CategoryController@storeCategory');
 Route::get('/categories/delete/{category}', 'CategoryController@destroy');
 
+Route::post('/search', 'HomeController@search');
 
