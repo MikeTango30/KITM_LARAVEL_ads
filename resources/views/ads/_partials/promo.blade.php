@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="form-search-wrap mb-3" data-aos="fade-up" data-aos-delay="200">
-                    <form method="post" action="/search">
+                    <form action="/search">
                         <div class="row align-items-center">
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-4">
                                 <input type="text" class="form-control rounded"

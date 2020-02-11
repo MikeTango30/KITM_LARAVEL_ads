@@ -32,8 +32,18 @@ class HomeController extends Controller
 
     public function search(Request $request) {
 
-        dd($request);
-        $input = request::input('search');
+        $input = $request->input('search');
+        $location = $request->input('location');
+        $category = $request->input('category');
+
+        $listings = Listing::select('*')
+            ->join('categories', 'listings.category_id', '=', 'categories.id')
+            ->where('listing_title','LIKE','%'.$input.'%')
+            ->where('category_id','LIKE','%'.$category.'%')
+            ->where('location','LIKE','%'.$location.'%')
+            ->simplePaginate(15);
+
+        return view('ads.pages.search', compact('listings'));
 
     }
 
