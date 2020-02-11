@@ -23,11 +23,10 @@ Route::post('/store-listing', 'ListingController@storeListing');
 Route::get('/listing/delete/{listing}', 'ListingController@destroy');
 Route::get('/listing/update/form/{listing}', 'ListingController@showUpdateForm');
 Route::post('/update/{listing}', 'ListingController@updateListing');
+Route::get('/search', 'ListingController@search');
+
 
 Route::get('/category-mgmt', 'CategoryController@showCategories');
 Route::get('/add-category', 'CategoryController@showNewCategoryForm');
 Route::post('/store-category', 'CategoryController@storeCategory');
 Route::get('/categories/delete/{category}', 'CategoryController@destroy');
-
-Route::get('/search', 'HomeController@search');
-

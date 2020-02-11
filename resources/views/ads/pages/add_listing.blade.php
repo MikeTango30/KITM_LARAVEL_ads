@@ -21,7 +21,7 @@
         </div>
         <div class="row add-category">
             <h3>Naujo skelbimo pridėjimas</h3>
-            <form method="post" action="/store-listing" class="p-5 bg-white w-100">
+            <form method="post" action="/store-listing" class="p-5 bg-white w-100" enctype="multipart/form-data">
                 @csrf
                 <div class="row form-group">
                     <div class="offset-md-3 col-md-6 mb-3 mb-md-0">

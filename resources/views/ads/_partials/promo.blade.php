@@ -45,17 +45,6 @@
                         </div>
                     </form>
                 </div>
-
-                <div class="row text-left trending-search" data-aos="fade-up" data-aos-delay="300">
-                    <div class="col-12">
-                        <h2 class="d-inline-block">Paieška:</h2>
-                        <a href="#">Kirvis</a>
-                        <a href="#">Žąsis</a>
-                        <a href="#">Didelis žvynas</a>
-                        <a href="#">Kempė</a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="d-block d-md-flex listing vertical">
     <a href="#" class="img d-block"
-       style="background-image: url({!! asset('images/img_1.jpg') !!})"></a>
+       style="background-image: url({!! asset('storage/'.$listing->img) !!})"></a>
     <div class="lh-content">
         <span class="category">{{ $listing->category_name }}</span>
         <a href="#" class="bookmark"><span class="icon-heart"></span></a>

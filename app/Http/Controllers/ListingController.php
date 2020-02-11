@@ -26,15 +26,19 @@ class ListingController extends Controller
             'description' => 'required',
             'price' => 'required',
             'email' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
+            'img' => 'mimes:jpeg, jpg, png, gif|required|max:10000'
         ]);
+        $path = $request->file('img')->store('public/images');
+        $filename = str_replace('public/', "", $path);
+
         $listing = Listing::create([
             'category_id' => request('catId'),
             'listing_title' => request('title'),
             'location' => request('location'),
             'description' => request('description'),
             'rating' => null,
-            'img' => null,
+            'img' => $filename,
             'price' => request('price'),
             'email' => request('email'),
             'phone' => request('phone'),
@@ -90,6 +94,23 @@ class ListingController extends Controller
         Listing::where('id', $listing->getAttribute('id'))->update($request->except(['_token']));
 
         return redirect('/listing-mgmt');
+    }
+
+    public function search(Request $request) {
+
+        $input = $request->input('search');
+        $location = $request->input('location');
+        $category = $request->input('category');
+
+        $listings = Listing::select('*')
+            ->join('categories', 'listings.category_id', '=', 'categories.id')
+            ->where('listing_title','LIKE','%'.$input.'%')
+            ->where('category_id','LIKE','%'.$category.'%')
+            ->where('location','LIKE','%'.$location.'%')
+            ->simplePaginate(15);
+
+        return view('ads.pages.search', compact('listings'));
+
     }
 
 }
