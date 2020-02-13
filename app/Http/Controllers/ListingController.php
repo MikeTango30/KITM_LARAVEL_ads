@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ListingController extends Controller
 {
@@ -89,9 +90,21 @@ class ListingController extends Controller
             'description' => 'required',
             'price' => 'required',
             'email' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
         ]);
-        Listing::where('id', $listing->getAttribute('id'))->update($request->except(['_token']));
+
+        $imgPath = Listing::select('img')->find($listing->getAttribute('id'))->img;
+
+        if ($request->file()) {
+            Storage::delete($imgPath);
+            $path = $request->file('img')->store('public/images');
+            $filename = str_replace('public/', "", $path);
+            Listing::where('id', $listing->getAttribute('id'))->update(['img' => $filename]);
+        }
+
+        Listing::where('id', $listing->getAttribute('id'))->update($request->except(['_token', 'img']));
+
+
 
         return redirect('/listing-mgmt');
     }

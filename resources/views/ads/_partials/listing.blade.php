@@ -1,5 +1,5 @@
 <div class="d-block d-md-flex listing vertical">
-    <a href="#" class="img d-block"
+    <a href="{{ url('/listing/'.$listing->id) }}" class="img d-block"
        style="background-image: url({!! asset('storage/'.$listing->img) !!})"></a>
     <div class="lh-content">
         <span class="category">{{ $listing->category_name }}</span>
