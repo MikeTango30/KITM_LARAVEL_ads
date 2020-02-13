@@ -16,12 +16,14 @@
                         </ul>
                     </li>
                     <li class="mr-5"><a href="{{ url('/contacts') }}">Kontaktai</a></li>
+                    @guest
+                        <li class="ml-xl-3 login"><a href="{{ url('/login') }}"><span
+                                        class="border-left pl-xl-4"></span>Prisijungti</a>
+                        </li>
 
-                    <li class="ml-xl-3 login"><a href="{{ url('/login') }}"><span class="border-left pl-xl-4"></span>Prisijungti</a>
-                    </li>
-
-                    <li><a href="{{ url('/register') }}" class="cta"><span class="bg-primary text-white rounded">Registruotis</span></a>
-                    </li>
+                        <li><a href="{{ url('/register') }}" class="cta"><span class="bg-primary text-white rounded">Registruotis</span></a>
+                        </li>
+                    @endguest
                 </ul>
             </nav>
         </div>
@@ -30,6 +32,8 @@
         </div>
     </div>
     <div class="row justify-content-end">
-        @include('ads._partials.admin_panel')
+        @auth
+            @include('ads._partials.admin_panel')
+        @endauth
     </div>
 </header>
