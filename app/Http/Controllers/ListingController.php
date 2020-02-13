@@ -6,6 +6,7 @@ use App\Category;
 use App\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class ListingController extends Controller
 {
@@ -93,10 +94,9 @@ class ListingController extends Controller
             'phone' => 'required',
         ]);
 
-        $imgPath = Listing::select('img')->find($listing->getAttribute('id'))->img;
-
         if ($request->file()) {
-            Storage::delete($imgPath);
+            File::delete(storage_path('app/public/'.$listing->img));
+
             $path = $request->file('img')->store('public/images');
             $filename = str_replace('public/', "", $path);
             Listing::where('id', $listing->getAttribute('id'))->update(['img' => $filename]);
