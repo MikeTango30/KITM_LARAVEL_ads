@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Listing;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,15 +21,6 @@ class HomeController extends Controller
         return view('ads.pages.index', compact('listings', 'categories'));
     }
 
-    public function showListings()
-    {
-        $listings = Listing::select('*')
-            ->join('categories', 'listings.category_id', '=', 'categories.id')
-            ->simplePaginate(15);
-
-        return view('ads.pages.listings', compact('listings'));
-    }
-
     public function showAbout()
     {
 
@@ -40,6 +31,13 @@ class HomeController extends Controller
     {
 
         return view('ads.pages.contacts');
+    }
+
+    public function logout() {
+
+        Auth::logout();
+
+        return redirect('/login');
     }
 
 }

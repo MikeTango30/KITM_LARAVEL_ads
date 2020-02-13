@@ -12,8 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/listings', 'HomeController@showListings');
-Route::get('/listing/{listing}', 'ListingController@showListing');
 Route::get('/about', 'HomeController@showAbout');
 Route::get('/contacts', 'HomeController@showContacts');
 
@@ -24,9 +22,15 @@ Route::get('/listing/delete/{listing}', 'ListingController@destroy');
 Route::get('/listing/update/form/{listing}', 'ListingController@showUpdateForm');
 Route::post('/update/{listing}', 'ListingController@updateListing');
 Route::get('/search', 'ListingController@search');
+Route::get('/listings', 'ListingController@showListings');
+Route::get('/listing/{listing}', 'ListingController@showListing');
 
 
 Route::get('/category-mgmt', 'CategoryController@showCategories');
 Route::get('/add-category', 'CategoryController@showNewCategoryForm');
 Route::post('/store-category', 'CategoryController@storeCategory');
 Route::get('/categories/delete/{category}', 'CategoryController@destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'HomeController@logout');

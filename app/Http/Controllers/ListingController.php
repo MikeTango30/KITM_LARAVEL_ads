@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Listing;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use File;
 
 class ListingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth',['except' => ['showListings', 'showListing', 'search']]);
+    }
+
     public function showNewListingForm()
     {
 
@@ -47,12 +51,6 @@ class ListingController extends Controller
         ]);
 
         return redirect('/listing-mgmt');
-    }
-
-    public function showListing(Listing $listing)
-    {
-
-        return view('ads.pages.listing', compact('listing'));
     }
 
     public function showListingsTable()
@@ -107,6 +105,21 @@ class ListingController extends Controller
 
 
         return redirect('/listing-mgmt');
+    }
+
+    public function showListings()
+    {
+        $listings = Listing::select('*')
+            ->join('categories', 'listings.category_id', '=', 'categories.id')
+            ->simplePaginate(15);
+
+        return view('ads.pages.listings', compact('listings'));
+    }
+
+    public function showListing(Listing $listing)
+    {
+
+        return view('ads.pages.listing', compact('listing'));
     }
 
     public function search(Request $request) {
