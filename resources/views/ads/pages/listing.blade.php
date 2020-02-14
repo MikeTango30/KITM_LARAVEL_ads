@@ -29,7 +29,39 @@
                     <p class="mt-3"><a href="#" class="btn btn-primary">Susisiekite</a></p>
 
                 </div>
+                <div class="row w-50 bootstrap snippets mt-5">
+                    <div class="col">
+                        <div class="comment-wrapper">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h4>Komentarai</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <form action="/listing/{{ $listing->id }}/comment" method="post">
+                                        @csrf
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Rašykite komentarą..." rows="3" name="comment"></textarea>
+                                        </div>
+                                        <button type="submit" name="commentBtn" class="btn btn-info pull-right">Komentuoti</button>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <hr>
+                                    {{--@foreach($comments as $comment)--}}
+                                        {{--@component('comments')--}}
+                                            {{--@slot('name')--}}
+                                                {{--<h4>Haroldas</h4>--}}
+                                            {{--@endslot--}}
+                                            {{--@slot('comment')--}}
+                                                {{--<p>{{ $comment->comment }}</p>--}}
+                                            {{--@endslot--}}
+                                        {{--@endcomponent--}}
+                                    {{--@endforeach--}}
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
             </div>
         </div>
     </div>

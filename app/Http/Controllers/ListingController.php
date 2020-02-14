@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Listing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use File;
 
 class ListingController extends Controller
@@ -40,6 +42,7 @@ class ListingController extends Controller
 
         $listing = Listing::create([
             'category_id' => request('catId'),
+            'user_id' => Auth::id(),
             'listing_title' => request('title'),
             'location' => request('location'),
             'description' => request('description'),
@@ -65,46 +68,57 @@ class ListingController extends Controller
 
     public function destroy(Listing $listing)
     {
+        if (Gate::allows('destroy', $listing)) {
 
-        $listing->delete();
+            $listing->delete();
 
-        return redirect('/listing-mgmt');
-    }
-
-    public function showUpdateForm(Listing $listing) {
-
-        $categories = Category::all();
-        $categoryId = $listing->getAttribute('category_id');
-        $currentCategory = Category::select('category_name')->find($categoryId);
-
-        return view('ads.pages.listing_update', compact('listing', 'categories', 'currentCategory'));
-    }
-
-    public function updateListing(Request $request, Listing $listing) {
-
-        $validatedData = $request->validate([
-            'category_id' => 'required',
-            'listing_title' => 'required',
-            'location' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-        ]);
-
-        if ($request->file()) {
-            File::delete(storage_path('app/public/'.$listing->img));
-
-            $path = $request->file('img')->store('public/images');
-            $filename = str_replace('public/', "", $path);
-            Listing::where('id', $listing->getAttribute('id'))->update(['img' => $filename]);
+            return redirect('/listing-mgmt');
         }
 
-        Listing::where('id', $listing->getAttribute('id'))->update($request->except(['_token', 'img']));
+        return view('ads.pages.authorization_error');
+    }
 
+    public function showUpdateForm(Listing $listing)
+    {
 
+        if (Gate::allows('update', $listing)) {
+            $categories = Category::all();
+            $categoryId = $listing->getAttribute('category_id');
+            $currentCategory = Category::select('category_name')->find($categoryId);
 
-        return redirect('/listing-mgmt');
+            return view('ads.pages.listing_update', compact('listing', 'categories', 'currentCategory'));
+        }
+
+        return view('ads.pages.authorization_error');
+    }
+
+    public function updateListing(Request $request, Listing $listing)
+    {
+        if (Gate::allows('update', $listing)) {
+            $validatedData = $request->validate([
+                'category_id' => 'required',
+                'listing_title' => 'required',
+                'location' => 'required',
+                'description' => 'required',
+                'price' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+            ]);
+
+            if ($request->file()) {
+                File::delete(storage_path('app/public/' . $listing->img));
+
+                $path = $request->file('img')->store('public/images');
+                $filename = str_replace('public/', "", $path);
+                Listing::where('id', $listing->getAttribute('id'))->update(['img' => $filename]);
+            }
+
+            Listing::where('id', $listing->getAttribute('id'))->update($request->except(['_token', 'img']));
+
+            return redirect('/listing-mgmt');
+        }
+
+        return view('ads.pages.authorization_error');
     }
 
     public function showListings()

@@ -34,3 +34,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'HomeController@logout');
+
+Route::post('/listing/{listing}/comment', 'CommentController@addComment');
+

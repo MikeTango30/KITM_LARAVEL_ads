@@ -13,6 +13,7 @@ $factory->define(Listing::class, function (Faker $faker) {
 
     return [
         'category_id' => $faker->numberBetween(1, 10),
+        'user_id' => $faker->numberBetween(1,10),
         'img' => "images/qjYksngMOGhrPqGAXBqD6QhAhaOgzTIYgnbmPSIV.jpeg",
         'listing_title' => $faker->productName,
         'location' => $fakerLT->city,
