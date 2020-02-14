@@ -132,6 +132,7 @@ class ListingController extends Controller
 
     public function showListing(Listing $listing)
     {
+//        dd($listing->comments());
 
         return view('ads.pages.listing', compact('listing'));
     }

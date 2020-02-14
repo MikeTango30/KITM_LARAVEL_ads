@@ -24,6 +24,7 @@ Route::post('/update/{listing}', 'ListingController@updateListing');
 Route::get('/search', 'ListingController@search');
 Route::get('/listings', 'ListingController@showListings');
 Route::get('/listing/{listing}', 'ListingController@showListing');
+Route::post('/listing/{listing}/comment', 'CommentController@addComment');
 
 
 Route::get('/category-mgmt', 'CategoryController@showCategories');
@@ -35,5 +36,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'HomeController@logout');
 
-Route::post('/listing/{listing}/comment', 'CommentController@addComment');
+Route::get('/blacklist', 'UserController@showUsers');
+Route::get('/blacklist/add/{user}', 'UserController@blacklist');
+Route::get('/blacklist/remove/{user}', 'UserController@unblacklist');
+
 

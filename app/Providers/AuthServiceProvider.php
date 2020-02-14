@@ -32,5 +32,15 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('update', function ($user, $listing) {
             return $user->id === $listing->user_id;
         });
+
+        Gate::define('blacklist', function () {
+
+            return Auth()->id() === 11;
+        });
+
+        Gate::define('comment', function ($user) {
+
+            return $user->blacklisted === 0;
+        });
     }
 }

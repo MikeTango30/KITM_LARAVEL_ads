@@ -6,7 +6,7 @@
             <div class="row errors">
                 <div class="alert alert-danger">
                     <h2>You are dark soulless Person.</h2>
-                    <h5>Unauthorized access: Social goblins are coming for you.</h5>
+                    <h5>Unauthorized access: Social goblins are coming for <you class=""></you></h5>
                 </div>
             </div>
         </div>

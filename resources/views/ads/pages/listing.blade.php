@@ -46,16 +46,18 @@
                                     </form>
                                     <div class="clearfix"></div>
                                     <hr>
-                                    {{--@foreach($comments as $comment)--}}
-                                        {{--@component('comments')--}}
-                                            {{--@slot('name')--}}
-                                                {{--<h4>Haroldas</h4>--}}
-                                            {{--@endslot--}}
-                                            {{--@slot('comment')--}}
-                                                {{--<p>{{ $comment->comment }}</p>--}}
-                                            {{--@endslot--}}
-                                        {{--@endcomponent--}}
-                                    {{--@endforeach--}}
+                                    @if (count($listing->comments))
+                                    @foreach($listing->comments as $comment)
+                                        @component('ads._partials.comment')
+                                            @slot('name')
+                                                <h4>{{ $comment->user->name ?? 'Anonimas' }}</h4>
+                                            @endslot
+                                            @slot('comment')
+                                                <p>{{ $comment->comment }}</p>
+                                            @endslot
+                                        @endcomponent
+                                    @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>
